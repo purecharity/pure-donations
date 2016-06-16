@@ -1,4 +1,4 @@
-=== Pure Charity Base Plugin ===
+=== Pure Charity Donations Plugin ===
 Contributors: rafaeldalpra
 Link: http://purecharity.com/
 Tags: pure charity, donations, donation, donate
