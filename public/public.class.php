@@ -79,9 +79,10 @@ class Purecharity_Wp_Donations_Public {
 	 */
 	public static function donation_form($options) {
 
-		$html = '
+		$html = self::print_custom_styles();
+		$html += '
 			<div class="container">
-				<form class="clearfix">
+				<form class="pure-donations clearfix">
 	        <input class="donatefield" name="give" type="number" placeholder="$ USD" /><br/>
 	        <input class="button donatesubmit" data-url="'.$options['recurring'].'" name="donaterecurring" type="submit" value="Give Recurring" />
 	        <input class="button donatesubmit" data-url="'.$options['one_time'].'" name="donateonetime" type="submit" value="Give One-Time" />
@@ -90,6 +91,35 @@ class Purecharity_Wp_Donations_Public {
 		';
 		return $html;
 	}
+
+	/**
+	 * Prints the custom styles
+	 *
+	 * @since    1.0.0
+	 */	
+  public static function print_custom_styles(){
+    $base_settings = get_option( 'pure_base_settings' );
+    $pf_settings = get_option( 'purecharity_donations_settings' );
+
+    // Default theme color
+    if($pf_settings['plugin_color'] == NULL || $pf_settings['plugin_color'] == ''){
+      if($base_settings['main_color'] == NULL || $base_settings['main_color'] == ''){
+        $color = '#CA663A';
+      }else{
+        $color = $base_settings['main_color'];
+      }
+    }else{
+      $color = $pf_settings['plugin_color'];
+    }
+
+    $html = '<style>';
+    $html .= '
+			.container form.pure_donations input.button { background: '.$color.' !important; }
+    ';
+    $html .= '</style>';
+
+    return $html;
+  }
 
 	
 
