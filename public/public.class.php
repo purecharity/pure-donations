@@ -80,7 +80,7 @@ class Purecharity_Wp_Donations_Public {
 	public static function donation_form($options) {
 
 		$html = self::print_custom_styles();
-		$html += '
+		$html .= '
 			<div class="container">
 				<form class="pure-donations clearfix">
 	        <input class="donatefield" name="give" type="number" placeholder="$ USD" /><br/>
@@ -99,22 +99,22 @@ class Purecharity_Wp_Donations_Public {
 	 */	
   public static function print_custom_styles(){
     $base_settings = get_option( 'pure_base_settings' );
-    $pf_settings = get_option( 'purecharity_donations_settings' );
+    $pd_settings = get_option( 'purecharity_donations_settings' );
 
     // Default theme color
-    if($pf_settings['plugin_color'] == NULL || $pf_settings['plugin_color'] == ''){
-      if($base_settings['main_color'] == NULL || $base_settings['main_color'] == ''){
+    if(@$pd_settings['plugin_color'] == NULL || @$pd_settings['plugin_color'] == ''){
+      if(@$base_settings['main_color'] == NULL || @$base_settings['main_color'] == ''){
         $color = '#CA663A';
       }else{
-        $color = $base_settings['main_color'];
+        $color = @$base_settings['main_color'];
       }
     }else{
-      $color = $pf_settings['plugin_color'];
+      $color = @$pd_settings['plugin_color'];
     }
 
     $html = '<style>';
     $html .= '
-			.container form.pure_donations input.button { background: '.$color.' !important; }
+			.container form.pure-donations input.button { background: '.$color.' !important; }
     ';
     $html .= '</style>';
 

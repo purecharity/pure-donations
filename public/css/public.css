@@ -2,13 +2,13 @@
 	width: 100%;
 }
 
-.container form.pure_donations {
+.container form.pure-donations {
 	width: 430px;
 	margin: 0 auto;
 	border-radius: 5px;
 	padding: 0px;
 }
-.container form.pure_donations input.donatefield {
+.container form.pure-donations input.donatefield {
 	width: 100%;
 	padding: 10px;
 	margin-bottom: 10px;
@@ -18,11 +18,10 @@
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
-.container form.pure_donations input.button {
+.container form.pure-donations input.button {
 	margin: 0;
 	padding: 10px 20px;
 	text-align: center;
-	background: transparent;
 	border: none;
 	color: #FFF;
 	float: left;
@@ -30,7 +29,7 @@
 	border-radius: 4px;
 	box-shadow: 0px 2px 0px rgba(0,0,0,.5);
 }
-.container form.pure_donations input.button:last-child {
+.container form.pure-donations input.button:last-child {
 	border: none !important;
 }
 
