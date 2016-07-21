@@ -1,4 +1,51 @@
-/**
- * All of the CSS for your public-facing functionality should be
- * included in this file.
- */
+.container {
+	width: 100%;
+}
+
+.container form {
+	width: 430px;
+	margin: 0 auto;
+	border-radius: 5px;
+	padding: 0px;
+}
+.container form input.donatefield {
+	width: 100%;
+	padding: 10px;
+	margin-bottom: 10px;
+	border: none;
+	border-bottom: 2px solid #ccc;
+	-webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.container form input.button {
+	margin: 0;
+	padding: 10px 20px;
+	text-align: center;
+	background: transparent;
+	border: none;
+	color: #FFF;
+	background: orange;
+	float: left;
+	margin: 0 10px 0 0;
+	border-radius: 4px;
+	box-shadow: 0px 2px 0px rgba(0,0,0,.5);
+}
+.container form input.button:last-child {
+	border: none !important;
+}
+
+
+.clearfix:after {
+	visibility: hidden;
+	display: block;
+	font-size: 0;
+	content: " ";
+	clear: both;
+	height: 0;
+}
+.clearfix { display: inline-block; }
+/* start commented backslash hack \*/
+* html .clearfix { height: 1%; }
+.clearfix { display: block; }
+/* close commented backslash hack */

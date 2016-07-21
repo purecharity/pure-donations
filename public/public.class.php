@@ -23,11 +23,11 @@
 class Purecharity_Wp_Donations_Public {
 
 	/**
-	 * The ID of this plugin.
+	 * The name of this plugin.
 	 *
 	 * @since    1.0.0
 	 * @access   private
-	 * @var      string    $plugin_name    The ID of this plugin.
+	 * @var      string    $plugin_name    The name of this plugin.
 	 */
 	private $plugin_name;
 
@@ -60,21 +60,7 @@ class Purecharity_Wp_Donations_Public {
 	 * @since    1.0.0
 	 */
 	public function enqueue_styles() {
-
-		/**
-		 * This function is provided for demonstration purposes only.
-		 *
-		 * An instance of this class should be passed to the run() function
-		 * defined in Purecharity_Wp_Donations_Public_Loader as all of the hooks are defined
-		 * in that particular class.
-		 *
-		 * The Purecharity_Wp_Donations_Public_Loader will then create the relationship
-		 * between the defined hooks and the functions defined in this
-		 * class.
-		 */
-
 		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/public.css', array(), $this->version, 'all' );
-
 	}
 
 	/**
@@ -83,21 +69,28 @@ class Purecharity_Wp_Donations_Public {
 	 * @since    1.0.0
 	 */
 	public function enqueue_scripts() {
-
-		/**
-		 * This function is provided for demonstration purposes only.
-		 *
-		 * An instance of this class should be passed to the run() function
-		 * defined in Purecharity_Wp_Donations_Public_Loader as all of the hooks are defined
-		 * in that particular class.
-		 *
-		 * The Purecharity_Wp_Donations_Public_Loader will then create the relationship
-		 * between the defined hooks and the functions defined in this
-		 * class.
-		 */
-
 		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/public.js', array( 'jquery' ), $this->version, false );
-
 	}
+
+	/**
+	 * Prints the fields
+	 *
+	 * @since    1.0.0
+	 */
+	public static function donation_form($options) {
+
+		$html = '
+			<div class="container">
+				<form class="clearfix">
+	        <input class="donatefield" name="give" type="number" placeholder="$ USD" /><br/>
+	        <input class="button donatesubmit" data-url="'.$options['recurring'].'" name="donaterecurring" type="submit" value="Give Recurring" />
+	        <input class="button donatesubmit" data-url="'.$options['one_time'].'" name="donateonetime" type="submit" value="Give One-Time" />
+	      </form>
+			</div> 
+		';
+		return $html;
+	}
+
+	
 
 }

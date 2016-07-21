@@ -1,32 +1,15 @@
-(function( $ ) {
-	'use strict';
+jQuery(document).ready(function(){
+	if(jQuery('.donatesubmit').length > 0){
+	  jQuery(document).on('click', '.donatesubmit', function(){
+	  	// https://purecharity.com/fundraisers/21252/fund/X
+	    var redirect_to = jQuery(this).attr('data-url') + jQuery(this).parent().find('input[type=number]:first').val();
+	    location.href = redirect_to;
+	    return false;
+	  });
 
-	/**
-	 * All of the code for your public-facing JavaScript source
-	 * should reside in this file.
-	 *
-	 * Note that this assume you're going to use jQuery, so it prepares
-	 * the $ function reference to be used within the scope of this
-	 * function.
-	 *
-	 * From here, you're able to define handlers for when the DOM is
-	 * ready:
-	 *
-	 * $(function() {
-	 *
-	 * });
-	 *
-	 * Or when the window is loaded:
-	 *
-	 * $( window ).load(function() {
-	 *
-	 * });
-	 *
-	 * ...and so on.
-	 *
-	 * Remember that ideally, we should not attach any more than a single DOM-ready or window-load handler
-	 * for any particular page. Though other scripts in WordPress core, other plugins, and other themes may
-	 * be doing this, we should try to minimize doing that in our own work.
-	 */
-
-})( jQuery );
+	  jQuery('form').keypress(function(e){
+	    if (e.keyCode == 10 || e.keyCode == 13) 
+	      e.preventDefault();
+	  });
+	}
+});

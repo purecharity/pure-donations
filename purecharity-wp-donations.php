@@ -28,7 +28,17 @@
 // If this file is called directly, abort.
 if ( ! defined( 'WPINC' ) ) {
 	die;
+
+/**
+ * The template tags.
+ */
+require_once plugin_dir_path( __FILE__ ) . 'includes/template_tags.php';
 }
+
+/**
+ * The shortcodes.
+ */
+require_once plugin_dir_path( __FILE__ ) . 'includes/shortcodes.class.php';
 
 /**
  * The code that runs during plugin activation.
@@ -69,3 +79,31 @@ function run_purecharity_wp_donations() {
 }
 run_purecharity_wp_donations();
 register_activation_hook( __FILE__, array( 'Purecharity_Wp_Donations', 'activation_check' ) );
+
+
+/*
+ * Plugin updater using GitHub
+ *
+ * Auto Updates through GitHub
+ *
+ * @since   1.0.0
+ */
+add_action( 'init', 'purecharity_wp_donations_updater' );
+function purecharity_wp_donations_updater() {
+  if ( is_admin() ) { // note the use of is_admin() to double check that this is happening in the admin
+    $fr_config = array(
+      'donation' => plugin_basename( __FILE__ ),
+      'proper_folder_name' => 'purecharity-wp-donations',
+      'api_url' => 'https://api.github.com/repos/purecharity/pure-donations',
+      'raw_url' => 'https://raw.githubusercontent.com/purecharity/pure-donations/master/purecharity-wp-donations/',
+      'github_url' => 'https://github.com/purecharity/pure-donations',
+      'zip_url' => 'https://github.com/purecharity/pure-donations/archive/master.zip',
+      'sslverify' => true,
+      'requires' => '3.0',
+      'tested' => '3.3',
+      'readme' => 'README.md',
+      'access_token' => '',
+    );
+    new WP_GitHub_Updater( $fr_config );
+  }
+}
