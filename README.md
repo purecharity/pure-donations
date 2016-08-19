@@ -22,4 +22,4 @@ Function:
 ## Shortcodes
 
 ### Donations Form
-`[donations]`
+`[donation]`
