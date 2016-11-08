@@ -91,8 +91,8 @@ class Purecharity_Wp_Donations {
 	 * Will check for the presence and status of the base plugin.
 	 *
 	 * @since    1.0.1
-	 */
-  static function base_present() {
+	 */ 
+  static function base_present() { 
 		return in_array( get_option( 'pure_base_name' ) . '/purecharity-wp-base.php', (array) get_option( 'active_plugins', array() ) );
   }
 
