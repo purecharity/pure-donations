@@ -83,7 +83,7 @@ class Purecharity_Wp_Donations_Public {
 		$html .= '
 			<div class="container">
 				<form class="pure-donations clearfix">
-	        <input class="donatefield" name="give" type="number" placeholder="$ USD" /><br/>
+	        <input class="donatefield" name="give" type="number" min="0" placeholder="$ USD" /><br/>
 	        <input class="button donatesubmit" data-url="'.$options['recurring'].'" name="donaterecurring" type="submit" value="Give Recurring" />
 	        <input class="button donatesubmit" data-url="'.$options['one_time'].'" name="donateonetime" type="submit" value="Give One-Time" />
 	      </form>
